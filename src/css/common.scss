@@ -1,0 +1,96 @@
+@charset "utf-8";
+/* 公共样式 */
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, p, blockquote, th, td,tr,b{ margin:0; padding:0; font-size: 12px;}
+fieldset, img { border:0;
+  font-size: 12px;}
+ol, ul { list-style:none; }
+em { font-style:normal; }
+input, button, select, textarea { outline:none; }
+textarea { resize:none; }
+a {text-decoration:none; cursor: pointer;color:#999; }
+a:hover {text-decoration:none; }
+.clear:after{content:"";/*里面可以为空、内容的意思*/
+  visibility:hidden; /*隐藏*/
+  height:0;
+  display:block;
+  clear:both;
+  overflow:hidden;
+}
+.clear{zoom:1;/*这个转为解决IE6的bug的*/}
+button,
+input,
+input[type=text],
+input[type=search],
+input[type=password] {
+  border: none;
+  -webkit-appearance: none;
+  outline:none;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+input[type="number"]{
+  -moz-appearance: textfield;
+}
+
+/*placeholder字体颜色*/
+input{
+  &::-webkit-input-placeholder { /* WebKit browsers */
+    color: #999;
+    font-size: 12px;
+  }
+  &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #999;
+    font-size: 12px;
+  }
+  &::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #999;opacity:1;
+    font-size: 12px;
+  }
+  &:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: #999 !important;
+  }
+  color:#333;
+  font-size: 12px;
+}
+
+/* 谷歌浏览器-文本框边框阴影遮住了背景颜色浅黄*/
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px #ffffff inset !important;
+}
+
+@mixin clearfix {
+  &:after {
+    clear: both;
+    content: '.';
+    display: block;
+    height: 0;
+    line-height: 0;
+    overflow: hidden;
+  }
+  *height: 1%;
+}
+/* 公共样式结束 */
+
+/* 滚动条样式 */
+div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, p, blockquote, th, td,tr,b{
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 10px;
+  }
+
+  /*定义滚动条轨道 内阴影+圆角*/
+  &::-webkit-scrollbar-track {
+    //-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 5px;
+    background-color: #fff;
+  }
+
+  /*定义滑块 内阴影+圆角*/
+  &::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    //-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #e6e6e6;
+  }
+}
